@@ -70,15 +70,5 @@ namespace StationSuggestion.Tests.Collections
 					_map.Retrieve("Xy").GetTerminals().Select(x => x.Value).ToList();
 				});
 		}
-
-		[Test]
-		public void ShouldFlattenForEnumeration()
-		{
-			foreach (var item in _map)
-			{
-				Console.WriteLine(item.Value);
-			}
-
-		}
 	}
 }
