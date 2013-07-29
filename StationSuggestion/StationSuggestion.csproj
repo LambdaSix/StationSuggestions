@@ -42,6 +42,7 @@
     <Compile Include="Collections\RadixTree.cs" />
     <Compile Include="Collections\RadixNode.cs" />
     <Compile Include="Collections\IRadixTree.cs" />
+    <Compile Include="ISuggestions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StationSuggestor.cs" />
   </ItemGroup>

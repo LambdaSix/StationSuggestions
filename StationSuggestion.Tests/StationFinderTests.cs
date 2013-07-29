@@ -24,12 +24,40 @@ namespace StationSuggestion.Tests
 			var suggestion = _finder.GetSuggestions("DART");
 
 			// Check the suggested letters are correct.
-			Assert.That(suggestion.nextLetters.Contains('F'));
-			Assert.That(suggestion.nextLetters.Contains('M'));
+			Assert.That(suggestion.NextLetters.Contains('F'));
+			Assert.That(suggestion.NextLetters.Contains('M'));
 
 			// Check the suggested stations are correct.
-			Assert.That(suggestion.stations.Contains("DARTFORD"));
-			Assert.That(suggestion.stations.Contains("DARTMOUTH"));
+			Assert.That(suggestion.Stations.Contains("DARTFORD"));
+			Assert.That(suggestion.Stations.Contains("DARTMOUTH"));
+		}
+
+		[Test]
+		public async Task GetSuggestionsAsyncShouldReturnValues()
+		{
+			var suggestion = await _finder.GetSuggestionsAsync("DART");
+
+			// Check the suggested letters are correct.
+			Assert.That(suggestion.NextLetters.Contains('F'));
+			Assert.That(suggestion.NextLetters.Contains('M'));
+
+			// Check the suggested stations are correct.
+			Assert.That(suggestion.Stations.Contains("DARTFORD"));
+			Assert.That(suggestion.Stations.Contains("DARTMOUTH"));
+		}
+
+		[Test]
+		public void GetSuggestionsOrDefaultShouldReturnValues()
+		{
+			var suggestion = _finder.GetSuggestionsOrDefault("Xy");
+
+			Assert.That(suggestion == null);
+		}
+
+		[Test]
+		public void GetSuggestionsShouldThrow()
+		{
+			Assert.Throws<KeyNotFoundException>(() => _finder.GetSuggestions("Xy"));
 		}
 	}
 }
