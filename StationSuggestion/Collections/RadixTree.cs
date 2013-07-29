@@ -7,6 +7,8 @@ namespace StationSuggestion.Collections
 {
 	/// <summary>
 	/// Implementation of a RadixTree.
+	/// 
+	/// While a RadixTree can be enumerated, it will recurse over all possible nodes.
 	/// </summary>
 	public class RadixTree : IRadixTree<string, RadixNode>, IEnumerable<RadixNode>
 	{
@@ -17,9 +19,7 @@ namespace StationSuggestion.Collections
 		/// </summary>
 		public IEnumerable<RadixNode> Root
 		{
-			// TODO: Make this a lazy auto-property?
 			get { return _root; }
-			set { }
 		}
 
 		public RadixTree()

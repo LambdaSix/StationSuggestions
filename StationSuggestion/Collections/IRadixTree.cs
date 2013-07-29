@@ -9,7 +9,7 @@ namespace StationSuggestion.Collections
 	/// <typeparam name="U">Node type</typeparam>
 	public interface IRadixTree<in T,U>
 	{
-		IEnumerable<U> Root { get; set; }
+		IEnumerable<U> Root { get; }
 		void Add(T key);
 		U Retrieve(IEnumerable<char> key);
 	}
